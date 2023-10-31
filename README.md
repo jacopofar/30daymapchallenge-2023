@@ -1,4 +1,4 @@
-## 30 day map challenge 223
+## 30 day map challenge 2023
 
 This is my playground for the [30 day map challenge](https://30daymapchallenge.com/).
 
