@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=65.5.1", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+# explicitly specified to ignore folders like htmlcov that
+# would be auto-discovered as packages
+# also to use namespace packages and avoid the annoying __init__.py
+# see https://peps.python.org/pep-0420/
+packages = [
+    "mapchallenge",
+]
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "pytest>=7.4.2",
+    "mypy>=1.6.1",
+    "ruff>=0.1.3",
+    "types-Pillow>=10.1.0.0",
+]
+[project]
+name = "mapchallenge"
+version = "0.0.1"
+description = ""
+authors = [
+    {name = "Jacopo Farina",email = "jacopo1.farina@gmail.com"},
+]
+dependencies = [
+    "Pillow>=10.1.0",
+    "shapely>=2.0.2",
+    "psycopg>=3.1.12",
+    "duckdb>=0.9.1",
+    "geoshiny>=0.0.3",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+[[tool.mypy.overrides]]
+module = [
+    "shapely",
+    "shapely.ops",
+    "shapely.geometry"
+]
+ignore_missing_imports = true
