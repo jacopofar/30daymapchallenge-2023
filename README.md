@@ -16,10 +16,26 @@ Install the dependencies with `pdm install`, then:
 
 ## Status
 
-* Day 01, `Point` done
+<table>
+<th>
+<td>day</td>
+<td>theme</td>
+<td>implementation</td>
+
+</th>
+<tr>
+<td>1</td><td>Point</td><td>✔️ Benches and water fountains in Milan, italy, using single pixels</td>
+</tr>
+<tr>
+<td>2</td><td>Line</td><td>✔️ Roads colored by the bike accessibility (dedicated, allowed, forbidden, unknown) in Milan.</td>
+
+</tr>
+</table>
+
 
 ## How to initialize a DB
-Docker is required.
+You need Docker (or Podman).
+
 Use `./ingest_pbf.sh filename.pbf` to start a PostGIS instance and ingest a PBF file in it using pgosm-flex from rustprooflabs. It will leave the DB running.
 
 Later, use `make start-db` to restart the same instance with the data already loaded.
