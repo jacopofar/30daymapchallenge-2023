@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-# Mapchallenge 2023, day 01: Points
 from PIL import Image, ImageDraw
 
 from mapchallenge.helpers.database import run_query

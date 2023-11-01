@@ -17,6 +17,7 @@ dev = [
     "mypy>=1.6.1",
     "ruff>=0.1.3",
     "types-Pillow>=10.1.0.0",
+    "isort>=5.12.0",
 ]
 [project]
 name = "mapchallenge"

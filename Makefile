@@ -4,8 +4,9 @@ start-db:
 
 .PHONY: format
 format:
+	pdm run isort mapchallenge
 	pdm run ruff format mapchallenge
 
 .PHONY: mypy
 mypy:
-	pdm run mypy --explicit-package-bases mapchallenge
+	pdm run mypy --strict --explicit-package-bases mapchallenge
