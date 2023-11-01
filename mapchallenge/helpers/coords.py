@@ -78,7 +78,8 @@ class ExtentDegrees:
             x /= self.lonmax - self.lonmin
             y /= self.latmax - self.latmin
             x *= image_size[0]
-            y *= image_size[1]
+            # y is inverted, cartesian convention rather than image convention
+            y = (1.0 - y) * image_size[1]
             return (x, y)
 
         return transform(transform_coords, geom)
