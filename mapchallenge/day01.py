@@ -1,6 +1,7 @@
 from PIL import Image, ImageDraw
 
 from mapchallenge.helpers.database import run_query
+from mapchallenge.helpers.drawing import stamp_shape
 from mapchallenge.params import EXTENT, IMSIZE
 
 if __name__ == "__main__":
@@ -31,6 +32,5 @@ if __name__ == "__main__":
     im = Image.new("RGBA", IMSIZE, (0, 0, 0, 255))
     draw = ImageDraw.Draw(im)
     for row in rows:
-        point = ext.geom_in_image_coords(row[1], im.size)
-        draw.point((point.x, point.y), fill=relevant_types[row[0]])
+        stamp_shape(EXTENT, draw, row[1], fill=relevant_types[row[0]])
     im.save("day01.png", "PNG")

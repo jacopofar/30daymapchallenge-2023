@@ -2,6 +2,7 @@ from PIL import Image, ImageDraw
 from tqdm import tqdm
 
 from mapchallenge.helpers.database import run_query
+from mapchallenge.helpers.drawing import stamp_shape
 from mapchallenge.params import EXTENT, IMSIZE
 
 if __name__ == "__main__":
@@ -32,7 +33,7 @@ if __name__ == "__main__":
             osm.tags
                 JOIN osm.road_line rl ON rl.osm_id = tags.osm_id
         WHERE
-             tags ->> 'access' IS NULL OR tags ->> 'access' NOT IN ('private', 'no')
+             (tags ->> 'access' IS NULL OR tags ->> 'access' NOT IN ('private', 'no'))
         AND geom && st_makeenvelope(%s, %s, %s, %s, 3857)
     """,
         EXTENT.as_epsg3857(),
@@ -40,16 +41,5 @@ if __name__ == "__main__":
     im = Image.new("RGBA", IMSIZE, (0, 0, 0, 255))
     draw = ImageDraw.Draw(im)
     for row in tqdm(rows):
-        road_polygon = EXTENT.geom_in_image_coords(row[1], im.size)
-        assert (
-            road_polygon.geom_type == "MultiLineString"
-        ), f"Expected a MultiLineString got {road_polygon.type}"
-        for line in road_polygon.geoms:
-            # get consecutive coords
-            coords = list(line.coords)
-            for i in range(len(coords) - 1):
-                draw.line(coords[i] + coords[i + 1], fill=colors[row[0]], width=1)
-            # close the circle if it is
-            if line.is_ring:
-                draw.line(coords[-1] + coords[0], fill=colors[row[0]], width=1)
+        stamp_shape(EXTENT, draw, row[1], fill=colors[row[0]], width=1)
     im.save("day02.png", "PNG")
