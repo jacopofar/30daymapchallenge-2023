@@ -46,3 +46,8 @@ module = [
     "shapely.geometry"
 ]
 ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+# the typing of Pillow is lacking/missing
+module = "mapchallenge.helpers.drawing"
+ignore_errors = true

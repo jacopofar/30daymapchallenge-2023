@@ -28,8 +28,11 @@ Install the dependencies with `pdm install`, then:
 </tr>
 <tr>
 <td>2</td><td>Line</td><td>✔️ Roads colored by the bike accessibility (dedicated, allowed, forbidden, unknown) in Milan.</td>
-
 </tr>
+<tr>
+<td>3</td><td>Polygon</td><td>✔️ Landuse by my (arbitrary) classification in Milan. Now with legend!</td>
+</tr>
+
 </table>
 
 
