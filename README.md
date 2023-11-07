@@ -32,7 +32,7 @@ Install the dependencies with `pdm install`, then:
 <tr>
 <td>3</td><td>Polygon</td><td>✔️ Landuse by my (arbitrary) classification in Milan. Now with legend!</td>
 </tr>
-
+<tr> To be continued, I had no time to do this :/</tr>
 </table>
 
 

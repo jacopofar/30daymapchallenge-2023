@@ -210,9 +210,9 @@ if __name__ == "__main__":
     add_vertical_legend(
         im_total_draw,
         [
-            ("Nature", NATURE_COLOR),
-            ("Traffic", TRAFFIC_COLOR),
-            ("Usage", USAGE_COLOR),
+            ("Usage (people go in this area)", USAGE_COLOR),
+            ("Traffic (people move through this area)", TRAFFIC_COLOR),
+            ("Nature (people relax in this area or it's not 'used')", NATURE_COLOR),
         ],
         (10, IMSIZE[1] + title_top_margin + 5),
         legend_extra_margin - 10,
